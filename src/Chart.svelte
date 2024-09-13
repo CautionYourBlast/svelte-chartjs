@@ -57,4 +57,4 @@
   useForwardEvents(() => canvasRef);
 </script>
 
-<canvas bind:this={canvasRef} {...props} />
+<canvas bind:this={canvasRef} {...props} ></canvas>
