@@ -3,7 +3,7 @@
 
 .DS_Store
 lib
-dist
+#dist
 .idea
 lib
 package
@@ -177,7 +177,7 @@ typings/
 .nuxt
 
 # rollup.js default build output
-dist/
+# dist/
 
 # ignore package bundling output
 .svelte-kit
