@@ -1,6 +1,4 @@
-import { onMount, onDestroy } from 'svelte';
-import { get } from 'svelte/store';
-import type { ComponentType } from 'svelte';
+import { onMount, onDestroy, type SvelteComponent } from 'svelte';
 
 const eventPrefix = /^on/;
 const events: string[] = [];
@@ -11,7 +9,7 @@ Object.keys(globalThis).forEach(key => {
   }
 });
 
-export function useForwardEvents<T extends ComponentType | Element>(
+export function useForwardEvents<T extends SvelteComponent | Element>(
   getRef: () => T
 ) {
   const destructors: (() => void)[] = [];
@@ -23,19 +21,20 @@ export function useForwardEvents<T extends ComponentType | Element>(
       detail: e,
       bubbles: true,
       cancelable: true,
-      composed: true
+      composed: true,
     });
     getRef().dispatchEvent(customEvent);
   }
 
   onMount(() => {
-    const ref = get(getRef);
+    const ref = getRef();
 
     events.forEach(event => {
       if (ref instanceof Element) {
         destructors.push(() => ref.removeEventListener(event, forward));
         ref.addEventListener(event, forward);
       } else {
+        console.log('ref', ref);
         // For Svelte components in Svelte 5
         const eventHandler = (e: Event) => forward(e);
         ref.$on(event, eventHandler);

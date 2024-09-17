@@ -1,4 +1,3 @@
-/// <reference types="svelte" />
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartBaseProps } from './types/index.js';
 interface $$__sveltets_2_IsomorphicComponent<
