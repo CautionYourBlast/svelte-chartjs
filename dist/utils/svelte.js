@@ -1,6 +1,5 @@
 import { onMount, onDestroy } from 'svelte';
 import { get } from 'svelte/store';
-import { $derived } from 'svelte';
 const eventPrefix = /^on/;
 const events = [];
 Object.keys(globalThis).forEach(key => {

@@ -1,6 +1,5 @@
 import { onMount, onDestroy } from 'svelte';
 import { get } from 'svelte/store';
-import { $derived } from 'svelte';
 import type { ComponentType } from 'svelte';
 
 const eventPrefix = /^on/;
