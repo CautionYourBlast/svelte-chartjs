@@ -1,19 +1,41 @@
-import { SvelteComponent } from "svelte";
+/// <reference types="svelte" />
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartBaseProps } from './types/index.js';
-declare const __propDef: {
-    props: Omit<ChartBaseProps<"radar", number[], unknown>, "type"> & {
-        chart?: ChartJS<"radar", number[], unknown>;
-    };
-    events: {
-        [evt: string]: CustomEvent<any>;
-    };
-    slots: {};
-};
-export type RadarProps = typeof __propDef.props;
-export type RadarEvents = typeof __propDef.events;
-export type RadarSlots = typeof __propDef.slots;
-export default class Radar extends SvelteComponent<RadarProps, RadarEvents, RadarSlots> {
+interface $$__sveltets_2_IsomorphicComponent<
+  Props extends Record<string, any> = any,
+  Events extends Record<string, any> = any,
+  Slots extends Record<string, any> = any,
+  Exports = {},
+  Bindings = string,
+> {
+  new (
+    options: import('svelte').ComponentConstructorOptions<Props>
+  ): import('svelte').SvelteComponent<Props, Events, Slots> & {
+    $$bindings?: Bindings;
+  } & Exports;
+  (
+    internal: unknown,
+    props: Props & {
+      $$events?: Events;
+      $$slots?: Slots;
+    }
+  ): Exports & {
+    $set?: any;
+    $on?: any;
+  };
+  z_$$bindings?: Bindings;
 }
-export {};
+declare const Radar: $$__sveltets_2_IsomorphicComponent<
+  Omit<ChartBaseProps<'radar', number[], unknown>, 'type'> & {
+    chart?: ChartJS<'radar', number[], unknown>;
+  },
+  {
+    [evt: string]: CustomEvent<any>;
+  },
+  {},
+  {},
+  string
+>;
+type Radar = InstanceType<typeof Radar>;
+export default Radar;
 //# sourceMappingURL=Radar.svelte.d.ts.map

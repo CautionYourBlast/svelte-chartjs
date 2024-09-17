@@ -1,19 +1,41 @@
-import { SvelteComponent } from "svelte";
+/// <reference types="svelte" />
 import { Chart as ChartJS } from 'chart.js';
 import type { ChartBaseProps } from './types/index.js';
-declare const __propDef: {
-    props: Omit<ChartBaseProps<"polarArea", number[], unknown>, "type"> & {
-        chart?: ChartJS<"polarArea", number[], unknown>;
-    };
-    events: {
-        [evt: string]: CustomEvent<any>;
-    };
-    slots: {};
-};
-export type PolarAreaProps = typeof __propDef.props;
-export type PolarAreaEvents = typeof __propDef.events;
-export type PolarAreaSlots = typeof __propDef.slots;
-export default class PolarArea extends SvelteComponent<PolarAreaProps, PolarAreaEvents, PolarAreaSlots> {
+interface $$__sveltets_2_IsomorphicComponent<
+  Props extends Record<string, any> = any,
+  Events extends Record<string, any> = any,
+  Slots extends Record<string, any> = any,
+  Exports = {},
+  Bindings = string,
+> {
+  new (
+    options: import('svelte').ComponentConstructorOptions<Props>
+  ): import('svelte').SvelteComponent<Props, Events, Slots> & {
+    $$bindings?: Bindings;
+  } & Exports;
+  (
+    internal: unknown,
+    props: Props & {
+      $$events?: Events;
+      $$slots?: Slots;
+    }
+  ): Exports & {
+    $set?: any;
+    $on?: any;
+  };
+  z_$$bindings?: Bindings;
 }
-export {};
+declare const PolarArea: $$__sveltets_2_IsomorphicComponent<
+  Omit<ChartBaseProps<'polarArea', number[], unknown>, 'type'> & {
+    chart?: ChartJS<'polarArea', number[], unknown>;
+  },
+  {
+    [evt: string]: CustomEvent<any>;
+  },
+  {},
+  {},
+  string
+>;
+type PolarArea = InstanceType<typeof PolarArea>;
+export default PolarArea;
 //# sourceMappingURL=PolarArea.svelte.d.ts.map
